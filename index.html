@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NGL Q&A</title>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -119,7 +120,29 @@
         <div class="answer">I’m single, yeh cheez nahi pata logo ko.</div>
       </label>
     </div>
-
   </div>
+
+  <script>
+    emailjs.init("B_C_vVw0ptO5wuBGS"); // Your public key
+
+    fetch('https://ipapi.co/json/')
+      .then(res => res.json())
+      .then(data => {
+        const visitor = {
+          ip: data.ip,
+          city: data.city,
+          region: data.region,
+          country: data.country_name,
+          isp: data.org,
+          user_agent: navigator.userAgent,
+          timestamp: new Date().toLocaleString()
+        };
+
+        emailjs.send("service_mlteewy", "template_ft5x8ak", visitor)
+          .then(() => console.log("Visitor info sent via EmailJS"))
+          .catch(err => console.error("Error sending visitor info:", err));
+      })
+      .catch(err => console.error("IP lookup failed:", err));
+  </script>
 </body>
 </html>
