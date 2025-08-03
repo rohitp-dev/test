@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NGL Q&A</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #5a2d0c;
+      margin-bottom: 2rem;
+    }
+
+    .qa {
+      margin-bottom: 1.5rem;
+    }
+
+    .qa label {
+      display: block;
+      cursor: pointer;
+    }
+
+    .question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
+      background-color: #ececec;
+      padding: 1rem;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .qa:hover .question {
+      background-color: #d6d6d6;
+    }
+
+    .answer {
+      padding: 1rem;
+      background-color: #fef5e7;
+      border-left: 4px solid #b06c21;
+      border-radius: 0 0 8px 8px;
+      display: none;
+      animation: fadeIn 0.3s ease-in;
+    }
+
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    input[type="checkbox"]:checked ~ .question .icon::before {
+      content: "➖";
+    }
+
+    input[type="checkbox"]:checked ~ .answer {
+      display: block;
+    }
+
+    .icon::before {
+      content: "➕";
+      font-size: 1.2rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>NGL - Questions & Answers</h1>
+
+    <div class="qa">
+      <label>
+        <input type="checkbox">
+        <div class="question">
+          Agar mein tujhe date pe puchu toh kya bolega?
+          <span class="icon"></span>
+        </div>
+        <div class="answer">Puch kr dekhlo :)</div>
+      </label>
+    </div>
+
+    <div class="qa">
+      <label>
+        <input type="checkbox">
+        <div class="question">
+          Tu mera crush hai
+          <span class="icon"></span>
+        </div>
+        <div class="answer">Achaa Ji</div>
+      </label>
+    </div>
+
+    <div class="qa">
+      <label>
+        <input type="checkbox">
+        <div class="question">
+          Ek cheez jo kisi ko nahi pata tere baare mein?
+          <span class="icon"></span>
+        </div>
+        <div class="answer">I’m single, yeh cheez nahi pata logo ko.</div>
+      </label>
+    </div>
+
+  </div>
+</body>
+</html>
